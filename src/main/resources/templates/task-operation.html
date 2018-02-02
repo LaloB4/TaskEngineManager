@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Task</title>
+<!-- General style -->
+<link href="#" rel="stylesheet" th:href="@{/css/gral-style.css}"/>
+<!-- Bootstrap styles -->
+<link href="#" rel="stylesheet" th:href="@{/b4/css/bootstrap.min.css}"/>
+</head>
+<body>
+	<div th:replace="components/navbar :: navbar"></div>
+	<div class="container">
+		<div class="row text-center">
+			<div class="col-md-4 offset-md-4 border-container main-container">
+				<h1 th:text="${operationType}"></h1>
+				<form>
+					<div class="form-group"> 
+
+						<div class="row">
+							<div class="col-md-4 text-left">
+								<label>Name:</label>
+							</div> 
+							<div class="col-md-8">
+								<input type="text" placeholder="task name" class="form-control"/>
+							</div> 
+						</div>	
+						
+						<div class="row">
+							<div class="col-md-4 text-left">
+								<label>Description:</label>
+							</div> 
+							<div class="col-md-8">
+								<textarea rows="5" class="form-control"></textarea>
+							</div> 
+						</div>
+						
+						<div class="row">
+							<div class="col-md-4 text-left">
+								<label>Creation date:</label>
+							</div> 
+							<div class="col-md-8">
+								<input type="date" class="form-control"/>
+							</div> 
+						</div>
+						
+						<div class="row">
+							<div class="col-md-4 text-left">
+								<label>Due date</label>
+							</div> 
+							<div class="col-md-8">
+								<input type="date" class="form-control"/>
+							</div> 
+						</div>
+						
+						<div class="row">
+							<div class="col-md-4 text-left">
+								<label>Priority</label>
+							</div> 
+							<div class="col-md-8">
+								<select class="form-control">
+									<option value="">--Select an option--</option>
+								</select>
+							</div> 
+						</div>
+						
+						<div class="row">
+							<div class="col-md-4 text-left">
+								<label>Category</label>
+							</div> 
+							<div class="col-md-8">
+								<select class="form-control">
+									<option value="">--Select an option--</option>
+								</select>
+							</div> 
+						</div>
+						
+						<div class="row">
+							<div class="col-md-4 text-left">
+								<label>Status</label>
+							</div> 
+							<div class="col-md-8">
+								<select class="form-control">
+									<option value="">--Select an option--</option>
+								</select>
+							</div> 
+						</div>
+			 		</div>
+			 		<button th:if="${buttonToShow == 'newTask'}" type="submit" class="btn btn-primary btn-block">
+			 			Save changes
+			 		</button>
+			 		<button th:if="${buttonToShow == 'searchTask'}" type="submit" class="btn btn-primary btn-block">
+			 			Search
+			 		</button>  
+				</form>
+			</div>				
+		</div>
+	</div>
+	<!-- Required Scripts -->
+	<script type="text/javascript" th:src="@{/jQuery/jquery-3.2.1.min.js}"></script>
+	<script type="text/javascript" th:src="@{/b4/js/bootstrap.min.js}"></script>
+</body>
+</html>

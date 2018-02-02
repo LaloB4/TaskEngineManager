@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Login</title>
+<!-- General style -->
+<link href="#" rel="stylesheet" th:href="@{/css/gral-style.css}"/>
+<!-- Bootstrap styles -->
+<link href="#" rel="stylesheet" th:href="@{/b4/css/bootstrap.min.css}"/>
+</head>
+<body>
+	
+	<div class="container main-container">
+		<div class="row text-center">
+			<div class="col-md-4 offset-md-4 login-form">
+				<h1>TEM v1</h1>
+				<div class="img-container">
+					<img alt="tem" src="#" th:src="@{/imgs/img-placeholder.png}"/>
+				</div>
+				<form method="POST" action="#" th:action="@{/checkcredentials}" th:object="${userModel}">
+					<div class="form-group">
+						<input type="text" class="form-control" id="username" name="username" placeholder="user name" th:field="*{username}"/>
+						<input type="password" class="form-control" id="password" name="password" placeholder="password" th:field="*{password}"/>
+					</div>
+					<div th:if="${error == ''}" class="alert alert-danger" role="alert">
+						User name or password is not correct!
+					</div>
+					<div th:if="${logout == ''}" class="alert alert-success" role="alert">
+						Logout successfully!
+					</div>
+					<button type="submit" class="btn btn-outline-primary btn-block">
+						Sign in
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- Required Scripts -->
+	<script type="text/javascript" th:src="@{/jQuery/jquery-3.2.1.min.js}"></script>
+	<script type="text/javascript" th:src="@{/b4/js/bootstrap.min.js}"></script>
+	
+</body>
+</html>

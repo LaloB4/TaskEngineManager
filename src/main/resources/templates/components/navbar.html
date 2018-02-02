@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+</head>
+<body>
+	<div th:fragment="navbar">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		  <a class="navbar-brand" href="#">
+    			<img src="#" th:src="@{/imgs/img-placeholder.png}" width="55" height="35" />
+  		  </a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav mr-auto">
+		      <li class="nav-item">
+		        <a class="nav-link" href="#" th:href="@{/task/home}">Home</a>
+		      </li>
+		      <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Task
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		          <a class="dropdown-item" href="#" th:href="@{/task/new}">New</a>
+		          <div class="dropdown-divider"></div>
+		          <a class="dropdown-item" href="#" th:href="@{/task/search}">Search</a>
+		          <div class="dropdown-divider"></div>
+		          <a class="dropdown-item" href="#" th:href="@{/task/list?status=open}">Open</a>
+		          <a class="dropdown-item" href="#" th:href="@{/task/list?status=working_on}">Working on</a>
+		          <a class="dropdown-item" href="#" th:href="@{/task/list?status=on_hold}">On hold</a>
+		          <a class="dropdown-item" href="#" th:href="@{/task/list?status=closed}">Closed</a>
+		          <a class="dropdown-item" href="#" th:href="@{/task/list?status=overdue}">Overdue</a>
+		        </div>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#" th:href="@{/task/about}">About</a>
+		      </li>
+		    </ul>
+		    <a th:href="@{/login?logout}" class="btn btn-danger my-2 my-sm-0">
+		    		Sign out
+		    </a>
+		  </div>
+		</nav>
+	</div>
+</body>
+</html>

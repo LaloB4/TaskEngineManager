@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Task list</title>
+<!-- General style -->
+<link href="#" rel="stylesheet" th:href="@{/css/gral-style.css}"/>
+<!-- Bootstrap styles -->
+<link href="#" rel="stylesheet" th:href="@{/b4/css/bootstrap.min.css}"/>
+<!-- Font awesome -->
+<script src="#"  th:src="@{/fa-5.0.6/svg-with-js/js/fontawesome-all.js}"></script>
+</head>
+<body>
+	<div th:replace="components/navbar :: navbar"></div>
+	
+	<div class="container main-container">
+	
+		<div class="row">
+			<h1>My <span th:text="${status}"></span> tasks</h1>
+		</div>
+	
+		<table class="table">
+		  <thead class="thead-dark">
+		    <tr>
+		      <th scope="col">Name</th>
+		      <th scope="col">Priority</th>
+		      <th scope="col">Due date</th>
+		      <th scope="col">Actions</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <td>Read</td>
+		      <td>Medium</td>
+		      <td>Jan 31, 2018</td>
+		      <td>
+		      	<a href="#" class="btn btn-primary">
+		      		<i class="fas fa-info-circle"></i>	
+		      	</a>
+		      	<a href="#" class="btn btn-danger"> 
+		      		<i class="fas fa-trash-alt"></i>
+		      	</a>
+		      </td>
+		    </tr>
+		  </tbody>
+		</table>	
+			
+	</div>
+	
+	
+	
+	<!-- Required Scripts -->
+	<script type="text/javascript" th:src="@{/jQuery/jquery-3.2.1.min.js}"></script>
+	<script type="text/javascript" th:src="@{/b4/js/bootstrap.min.js}"></script>
+</body>
+</html>

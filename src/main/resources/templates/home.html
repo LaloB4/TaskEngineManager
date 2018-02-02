@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Home</title>
+<!-- General style -->
+<link href="#" rel="stylesheet" th:href="@{/css/gral-style.css}"/>
+<!-- Bootstrap styles -->
+<link href="#" rel="stylesheet" th:href="@{/b4/css/bootstrap.min.css}"/>
+</head>
+<body>
+	<div th:replace="components/navbar :: navbar"></div>
+	<div class="container main-container">
+	
+		<div class="row">	
+			<div class="col-md-12">
+				<h1>Welcome username!</h1>
+			</div>
+		</div>
+		
+		<div class="border-container">
+			<div class="row text-center">	
+				<div class="card-deck">
+				  <div class="card">
+				    <img class="card-img-top" src="#" th:src="@{/imgs/img-placeholder.png}" alt="Card image cap"/>
+				    <div class="card-body">
+				      <h5 class="card-title">Open</h5>
+				      <p class="card-text">10</p>
+				    </div>
+				  </div>
+				  <div class="card">
+				    <img class="card-img-top" src="#" th:src="@{/imgs/img-placeholder.png}" alt="Card image cap"/>
+				    <div class="card-body">
+				      <h5 class="card-title">Working on</h5>
+				      <p class="card-text">3</p>
+				    </div>
+				  </div>
+				  <div class="card">
+				    <img class="card-img-top" src="#" th:src="@{/imgs/img-placeholder.png}" alt="Card image cap"/>
+				    <div class="card-body">
+				      <h5 class="card-title">On hold</h5>
+				      <p class="card-text">4</p>
+				    </div>
+				  </div>
+				  <div class="card">
+				    <img class="card-img-top" src="#" th:src="@{/imgs/img-placeholder.png}" alt="Card image cap"/>
+				    <div class="card-body">
+				      <h5 class="card-title">Closed</h5>
+				      <p class="card-text">12</p>
+				    </div>
+				  </div>
+				  <div class="card">
+				    <img class="card-img-top" src="#" th:src="@{/imgs/img-placeholder.png}" alt="Card image cap"/>
+				    <div class="card-body">
+				      <h5 class="card-title">Overdue</h5>
+				      <p class="card-text">4</p>
+				    </div>
+				  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Required Scripts -->
+	<script type="text/javascript" th:src="@{/jQuery/jquery-3.2.1.min.js}"></script>
+	<script type="text/javascript" th:src="@{/b4/js/bootstrap.min.js}"></script>
+</body>
+</html>

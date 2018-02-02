@@ -1,0 +1,23 @@
+.main-container{
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.img-container{
+	margin-bottom: 10px;
+}
+
+.login-form{
+	border: 1px solid;
+	padding: 30px;
+	padding-bottom: 45px;
+}
+
+.border-container{
+	border: 1px solid;
+	padding: 60px;
+}
+
+.border-container-taks{
+	border: 1px solid;
+}
