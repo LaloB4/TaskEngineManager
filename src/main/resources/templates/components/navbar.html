@@ -23,9 +23,9 @@
 		          Task
 		        </a>
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-		          <a class="dropdown-item" href="#" th:href="@{/task/new}">New</a>
+		          <a class="dropdown-item" href="#" th:href="@{/task/operation?type=new}">New</a>
 		          <div class="dropdown-divider"></div>
-		          <a class="dropdown-item" href="#" th:href="@{/task/search}">Search</a>
+		          <a class="dropdown-item" href="#" th:href="@{/task/operation?type=search}">Search</a>
 		          <div class="dropdown-divider"></div>
 		          <a class="dropdown-item" href="#" th:href="@{/task/list?status=open}">Open</a>
 		          <a class="dropdown-item" href="#" th:href="@{/task/list?status=working_on}">Working on</a>

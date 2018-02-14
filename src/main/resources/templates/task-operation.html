@@ -14,7 +14,7 @@
 		<div class="row text-center">
 			<div class="col-md-4 offset-md-4 border-container main-container">
 				<h1 th:text="${operationType}"></h1>
-				<form>
+				<form action="#" th:action="@{/task/insert}" method="POST" th:object="${task}">
 					<div class="form-group"> 
 
 						<div class="row">
@@ -22,7 +22,7 @@
 								<label>Name:</label>
 							</div> 
 							<div class="col-md-8">
-								<input type="text" placeholder="task name" class="form-control"/>
+								<input type="text" placeholder="task name" class="form-control" th:field="*{taskName}"/>
 							</div> 
 						</div>	
 						
@@ -31,7 +31,7 @@
 								<label>Description:</label>
 							</div> 
 							<div class="col-md-8">
-								<textarea rows="5" class="form-control"></textarea>
+								<textarea rows="5" class="form-control" th:field="*{taskDescription}"></textarea>
 							</div> 
 						</div>
 						
@@ -40,7 +40,7 @@
 								<label>Creation date:</label>
 							</div> 
 							<div class="col-md-8">
-								<input type="date" class="form-control"/>
+								<input type="date" class="form-control" th:field="*{creationDate}"/>
 							</div> 
 						</div>
 						
@@ -49,7 +49,7 @@
 								<label>Due date</label>
 							</div> 
 							<div class="col-md-8">
-								<input type="date" class="form-control"/>
+								<input type="date" class="form-control" th:field="*{dueDate}"/>
 							</div> 
 						</div>
 						
@@ -58,8 +58,11 @@
 								<label>Priority</label>
 							</div> 
 							<div class="col-md-8">
-								<select class="form-control">
+								<select class="form-control" th:field="*{priority}">
 									<option value="">--Select an option--</option>
+									<option value="low">low</option>
+									<option value="medium">medium</option>
+									<option value="high">high</option>
 								</select>
 							</div> 
 						</div>
@@ -69,8 +72,11 @@
 								<label>Category</label>
 							</div> 
 							<div class="col-md-8">
-								<select class="form-control">
+								<select class="form-control" th:field="*{category}">
 									<option value="">--Select an option--</option>
+									<option value="professional">professional</option>
+									<option value="personal">personal</option>
+									<option value="other">other</option>
 								</select>
 							</div> 
 						</div>
@@ -80,8 +86,12 @@
 								<label>Status</label>
 							</div> 
 							<div class="col-md-8">
-								<select class="form-control">
+								<select class="form-control" th:field="*{status}">
 									<option value="">--Select an option--</option>
+									<option value="working_on">working on</option>
+									<option value="on_hold">on hold</option>
+									<option value="closed">closed</option>
+									<option value="overdue">overdue</option>
 								</select>
 							</div> 
 						</div>

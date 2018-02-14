@@ -18,6 +18,14 @@
 			</div>
 		</div>
 		
+		<div th:if="${crationStatus == 'success'}" class="alert alert-success" role="alert">
+			<strong>Task created successfully!</strong>
+		</div>
+		
+		<div th:if="${crationStatus == 'error'}" class="alert alert-danger" role="alert">
+			<strong>Task could not be created, please try again.</strong>
+		</div>
+		
 		<div class="border-container">
 			<div class="row text-center">	
 				<div class="card-deck">

@@ -19,7 +19,7 @@
 			<h1>My <span th:text="${status}"></span> tasks</h1>
 		</div>
 	
-		<table class="table">
+		<table class="table main-container">
 		  <thead class="thead-dark">
 		    <tr>
 		      <th scope="col">Name</th>
@@ -29,10 +29,10 @@
 		    </tr>
 		  </thead>
 		  <tbody>
-		    <tr>
-		      <td>Read</td>
-		      <td>Medium</td>
-		      <td>Jan 31, 2018</td>
+		    <tr th:each="task : ${taskList}">
+		      <td th:text="${task.taskName}"></td>
+		      <td th:text="${task.priority}"></td>
+		      <td th:text="${task.dueDate}"></td>
 		      <td>
 		      	<a href="#" class="btn btn-primary">
 		      		<i class="fas fa-info-circle"></i>	
