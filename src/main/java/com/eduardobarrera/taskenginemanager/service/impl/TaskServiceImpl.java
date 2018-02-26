@@ -44,4 +44,12 @@ public class TaskServiceImpl implements TaskService {
 		return taskModelList;
 	}
 
+	@Override
+	public TaskModel searchTaskById(int taskId) {
+		
+		TaskEntity entity = taskRepository.findByTaskId(taskId);
+		TaskModel model = entity!=null?taskConverter.entityToModel(entity):null;
+		return model;
+	}
+
 }

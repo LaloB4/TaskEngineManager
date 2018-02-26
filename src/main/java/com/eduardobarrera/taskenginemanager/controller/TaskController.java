@@ -32,7 +32,8 @@ public class TaskController {
 	
 	@GetMapping("/operation")
 	public String getNewTaskView(Model model,
-								@RequestParam(name="type") String typeOfOperation) {
+								@RequestParam(name="type") String typeOfOperation,
+								@RequestParam(name="id", required=false)String taskId) {
 		
 		String operationType = "";
 		String buttonToShow = "";
@@ -45,10 +46,18 @@ public class TaskController {
 				
 			case "search":
 				operationType = "Search task";
-				buttonToShow = "searchTask";	
+				buttonToShow = "searchTask";
+				break;
+				
+			case "details":
+				operationType = "Task details";
+				buttonToShow = "taskDetails";
+				
 		}
 		
-		model.addAttribute("task", new TaskModel());
+		TaskModel taskModel = taskId!=null?taskService.searchTaskById(Integer.parseInt(taskId)):new TaskModel();
+		
+		model.addAttribute("task", taskModel);
 		model.addAttribute("operationType", operationType);
 		model.addAttribute("buttonToShow", buttonToShow);
 		return ViewConstant.TASK_OPERATION_VIEW;

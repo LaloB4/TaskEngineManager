@@ -9,6 +9,7 @@ public interface TaskService {
 	
 	public abstract List<TaskModel> getAllTasks();
 	public abstract TaskModel insertTask(TaskModel taskModel);
+	public abstract TaskModel searchTaskById(int taskId);
 	
 
 }
