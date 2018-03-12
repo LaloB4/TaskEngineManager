@@ -34,10 +34,17 @@
 		      <td th:text="${task.priority}"></td>
 		      <td th:text="${task.dueDate}"></td>
 		      <td>
-		      	<a href="#" th:href="@{/task/operation(id=__${{task.taskId}}__,type=details)}" class="btn btn-primary">
+		      	<a href="#" 
+		      	   th:href="@{/task/operation(id=__${{task.taskId}}__,type=details)}" 
+		      	   class="btn btn-primary"
+		      	   title="See task details">
 		      		<i class="fas fa-info-circle"></i>	
 		      	</a>
-		      	<a href="#" class="btn btn-danger"> 
+		      	<a href="#" 
+		      	   class="btn btn-danger"
+		      	   th:onclick="'return confirm(\'Do you really want to delete this task?\n\n__${{task.taskName}}__\')'"
+		      	   th:href="@{/task/delete?id=__${{task.taskId}}__}"	
+		      	   title="Delete task"> 
 		      		<i class="fas fa-trash-alt"></i>
 		      	</a>
 		      </td>

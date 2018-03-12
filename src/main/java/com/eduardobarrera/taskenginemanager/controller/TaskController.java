@@ -24,9 +24,11 @@ public class TaskController {
 	
 	@GetMapping("/home")
 	public String getHomeView(Model model,
-							 @RequestParam(name="creationStatus", required=false) String creationStatus) {
+							 @RequestParam(name="creationStatus", required=false) String creationStatus,
+							 @RequestParam(name="deletedStatus", required=false) String deletedStatus) {
 		
 		model.addAttribute("crationStatus", creationStatus);
+		model.addAttribute("deletedStatus", deletedStatus);
 		return ViewConstant.HOME_VIEW;
 	}
 	
@@ -91,4 +93,17 @@ public class TaskController {
 		
 		return redirectTo;
 	}
+	
+	@GetMapping("/delete")
+	public String deleteTask(@RequestParam(name="id") String taskId){
+		
+		boolean deleteTask = taskService.deleteTaskById(Integer.parseInt(taskId));
+		
+		String redirectTo = "redirect:/task/home?deletedStatus=" + deleteTask;
+		
+		return redirectTo;
+		
+		
+	}
+	 
 }

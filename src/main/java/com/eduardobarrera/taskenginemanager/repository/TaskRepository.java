@@ -11,4 +11,6 @@ import com.eduardobarrera.taskenginemanager.entity.TaskEntity;
 public interface TaskRepository extends JpaRepository<TaskEntity, Serializable>{
 	
 	public abstract TaskEntity findByTaskId(int taskId);
+	
+	
 }

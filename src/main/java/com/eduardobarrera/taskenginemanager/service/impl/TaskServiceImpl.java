@@ -52,4 +52,24 @@ public class TaskServiceImpl implements TaskService {
 		return model;
 	}
 
+	@Override
+	public boolean deleteTaskById(int taskId) {
+		
+		boolean deleted = true;
+		TaskModel model = searchTaskById(taskId);
+		
+		try {
+		
+			taskRepository.delete(taskConverter.modelToEntity(model));
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+			deleted = false;
+		}
+		
+		return deleted;
+		
+		
+	}
+
 }

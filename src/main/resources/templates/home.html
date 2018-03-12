@@ -26,6 +26,14 @@
 			<strong>Task could not be created, please try again.</strong>
 		</div>
 		
+		<div th:if="${deletedStatus == 'true'}" class="alert alert-success" role="alert">
+			<strong>Task deleted successfully!</strong>
+		</div>
+		
+		<div th:if="${deletedStatus == 'false'}" class="alert alert-danger" role="alert">
+			<strong>Task could not be deleted, please try again.</strong>
+		</div>
+		
 		<div class="border-container">
 			<div class="row text-center">	
 				<div class="card-deck">
