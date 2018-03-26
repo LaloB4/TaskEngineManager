@@ -14,7 +14,7 @@
 		<div class="row text-center">
 			<div class="col-md-4 offset-md-4 border-container main-container">
 				<h1 th:text="${operationType}"></h1>
-				<form action="#" th:action="@{/task/insert}" method="POST" th:object="${task}">
+				<form action="#" th:action="@{/task/insert?type=__${{formType}}__}" method="POST" th:object="${task}">
 					<div class="form-group">
 					
 						<input type="hidden" th:field="*{taskId}"/> 
@@ -98,15 +98,13 @@
 							</div> 
 						</div>
 			 		</div>
-			 		<button th:if="${buttonToShow == 'newTask'}" type="submit" class="btn btn-primary btn-block">
-			 			Save changes
-			 		</button>
-			 		<button th:if="${buttonToShow == 'searchTask'}" type="submit" class="btn btn-primary btn-block">
-			 			Search
-			 		</button>
-			 		<button th:if="${buttonToShow == 'taskDetails'}" type="submit" class="btn btn-primary btn-block">
-			 			Edit
-			 		</button>   
+			 		
+			 		<button  type="submit" class="btn btn-primary btn-block">
+			 				<span th:if="${buttonToShow == 'newTask'}">Save changes</span>
+			 				<span th:if="${buttonToShow == 'searchTask'}">Search</span>
+			 				<span th:if="${buttonToShow == 'taskDetails'}">Edit</span>
+			 		</button>	
+			 			 		
 				</form>
 			</div>				
 		</div>

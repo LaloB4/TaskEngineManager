@@ -14,9 +14,14 @@ import com.eduardobarrera.taskenginemanager.constant.ViewConstant;
 import com.eduardobarrera.taskenginemanager.model.TaskModel;
 import com.eduardobarrera.taskenginemanager.service.TaskService;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 @Controller
 @RequestMapping("/task")
 public class TaskController {
+	
+	private final Log LOGGER = LogFactory.getLog(TaskController.class);
 	
 	@Autowired
 	@Qualifier("taskServiceImpl")
@@ -37,23 +42,27 @@ public class TaskController {
 								@RequestParam(name="type") String typeOfOperation,
 								@RequestParam(name="id", required=false)String taskId) {
 		
-		String operationType = "";
-		String buttonToShow = "";
+		String operationType = ""; 
+		String buttonToShow = ""; 
+		String formType = "";
 		
 		switch(typeOfOperation) {
 			case "new":
 				operationType = "Create task";
 				buttonToShow = "newTask";
+				formType = "new";
 				break;
 				
 			case "search":
 				operationType = "Search task";
 				buttonToShow = "searchTask";
+				formType = "search";
 				break;
 				
 			case "details":
 				operationType = "Task details";
 				buttonToShow = "taskDetails";
+				formType = "details";
 				
 		}
 		
@@ -62,6 +71,7 @@ public class TaskController {
 		model.addAttribute("task", taskModel);
 		model.addAttribute("operationType", operationType);
 		model.addAttribute("buttonToShow", buttonToShow);
+		model.addAttribute("formType",formType);
 		return ViewConstant.TASK_OPERATION_VIEW;
 		
 	}
@@ -81,7 +91,10 @@ public class TaskController {
 	}
 	
 	@PostMapping("/insert")
-	public String insertNewTask(@ModelAttribute(name="task") TaskModel taskModel) {
+	public String insertNewTask(@ModelAttribute(name="task") TaskModel taskModel,
+							    @RequestParam(name="type", required=false) String type) {
+		
+		LOGGER.info("Form Type: " + type);
 		
 		String redirectTo = "redirect:/task/home";
 		TaskModel createdTask = taskService.insertTask(taskModel);
